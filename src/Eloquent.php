@@ -27,7 +27,29 @@ class Eloquent {
 	}
 
 	public static function autoload( $class ) {
+		// Namespace prefix for this plugin's classes
+		$namespace_prefix = 'WPEloquent\\';
 
+		// Ensure the class belongs to our plugin's namespace
+		if ( strpos( $class, $namespace_prefix ) !== 0 ) {
+			return;
+		}
+
+		// Remove the namespace prefix to get the relative class path
+		$relative_class = substr( $class, strlen( $namespace_prefix ) );
+
+		// Replace namespace separators with directory separators
+		$relative_path = str_replace( '\\', DIRECTORY_SEPARATOR, $relative_class );
+
+		// Construct the file path (assuming classes are in the 'src' directory)
+		$file_path = self::plugin_path( "src/{$relative_path}.php" );
+
+		// Include the file if it exists
+		if ( ! file_exists( $file_path ) ) {
+			return;
+		}
+
+		require_once $file_path;
 	}
 
 	/**
