@@ -2,8 +2,6 @@
 
 namespace WPEloquent\ORM;
 
-use wpdb;
-
 abstract class BaseModel {
 	protected $table; // The name of the database table
 	protected $primaryKey = 'id'; // The primary key column
