@@ -2,7 +2,7 @@
 namespace WPEloquent;
 
 /**
- * Class ActionScheduler_Versions
+ * Class Versions
  */
 class Versions {
 	/**

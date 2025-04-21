@@ -4,7 +4,7 @@ namespace WPEloquent;
 use WPEloquent\Commands\WPCLICommands;
 
 /**
- * Class ActionScheduler_Versions
+ * Main class.
  */
 class Eloquent {
 
